@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;700;800&display=swap');
+
+:root {
+  --color-bg: #050505;
+  --color-primary: #00ff00;
+  --color-primary-dim: rgba(0, 255, 0, 0.3);
+  --color-secondary: #ff00ff;
+  --color-secondary-dim: rgba(255, 0, 255, 0.3);
+  --color-accent: #00ffff;
+  --color-text: #e0e0e0;
+  --font-mono: 'JetBrains Mono', monospace;
+  --scanline-color: rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(10, 20, 10, 0.7);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+  min-height: 100vh;
+  cursor: crosshair;
+  /* Retro cursor */
+
+  /* Advanced Grid Background */
+  background-image:
+    linear-gradient(var(--color-primary-dim) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-primary-dim) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
+}
+
+/* CRT Screen Effect Overlay */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06));
+  z-index: 9998;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* Vignette */
+body::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle, transparent 60%, black 100%);
+  z-index: 9998;
+  pointer-events: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 0;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--color-secondary);
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 2px 2px 0px var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  display: inline-block;
+  padding-right: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '_';
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Glitch Animation Keyframes */
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+
+  20% {
+    transform: skew(-2deg);
+  }
+
+  40% {
+    transform: skew(2deg);
+  }
+
+  60% {
+    transform: skew(-1deg);
+  }
+
+  80% {
+    transform: skew(1deg);
+  }
+
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.glitch-text {
+  animation: glitch-skew 3s infinite linear alternate-reverse;
+}

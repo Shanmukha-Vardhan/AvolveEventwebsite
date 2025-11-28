@@ -1,0 +1,136 @@
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid var(--color-primary);
+    background: radial-gradient(circle at center, rgba(0, 20, 0, 0.4) 0%, transparent 70%);
+}
+
+.hero-content {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+    z-index: 2;
+}
+
+.system-status {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 0.8rem;
+    text-align: right;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.status-item {
+    margin-bottom: 0.5rem;
+}
+
+.random-val {
+    color: var(--color-secondary);
+    font-weight: bold;
+}
+
+.glitch-title {
+    font-size: 4rem;
+    color: #fff;
+    text-shadow: 4px 4px 0 var(--color-primary);
+    margin-bottom: 4rem;
+    line-height: 1.2;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+    color: var(--color-primary);
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid var(--color-secondary);
+    padding: 2rem;
+    min-width: 160px;
+    position: relative;
+    backdrop-filter: blur(5px);
+    box-shadow: 10px 10px 0 rgba(255, 0, 255, 0.2);
+    transition: transform 0.2s;
+}
+
+.time-box:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 15px 15px 0 rgba(255, 0, 255, 0.4);
+}
+
+.time-box::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-secondary);
+}
+
+.time-box::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background: var(--color-secondary);
+}
+
+.time-value {
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary);
+}
+
+.time-label {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.location-text {
+    color: #666;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .glitch-title {
+        font-size: 2rem;
+    }
+
+    .time-box {
+        min-width: 100px;
+        padding: 1rem;
+    }
+
+    .time-value {
+        font-size: 2.5rem;
+    }
+
+    .system-status {
+        display: none;
+    }
+}
