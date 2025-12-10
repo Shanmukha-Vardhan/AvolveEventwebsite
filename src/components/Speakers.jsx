@@ -1,5 +1,6 @@
 import React from 'react';
 import './Speakers.css';
+import TiltCard from './TiltCard';
 
 const speakersData = [
     { id: 1, initials: 'JD', name: 'John Doe', role: 'Senior Eng @ Google' },
@@ -14,7 +15,7 @@ const Speakers = () => {
             <h2 className="section-title">&gt; SPEAKERS_LOADED</h2>
             <div className="speakers-grid">
                 {speakersData.map((speaker) => (
-                    <div key={speaker.id} className="speaker-card">
+                    <TiltCard key={speaker.id} className="speaker-card">
                         <div className="speaker-circle">
                             {speaker.initials}
                         </div>
@@ -22,7 +23,7 @@ const Speakers = () => {
                             <p className="speaker-name">{speaker.name}</p>
                             <p className="speaker-role">{speaker.role}</p>
                         </div>
-                    </div>
+                    </TiltCard>
                 ))}
             </div>
         </section>

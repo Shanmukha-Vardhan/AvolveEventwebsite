@@ -1,5 +1,6 @@
 import React from 'react';
 import './Tracks.css';
+import TiltCard from './TiltCard';
 
 const tracks = [
     {
@@ -34,7 +35,7 @@ const Tracks = () => {
             <h2 className="section-title">&gt; EVENT_MODULES</h2>
             <div className="tracks-grid">
                 {tracks.map((track) => (
-                    <div key={track.id} className="track-card">
+                    <TiltCard key={track.id} className="track-card">
                         <div className="track-header">
                             <span className="track-id">#{track.id}</span>
                             <span className="track-icon">{track.icon}</span>
@@ -44,7 +45,7 @@ const Tracks = () => {
                         <div className="track-footer">
                             <button className="access-btn">ACCESS_MODULE</button>
                         </div>
-                    </div>
+                    </TiltCard>
                 ))}
             </div>
         </section>

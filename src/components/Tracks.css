@@ -20,7 +20,6 @@
 .track-card:hover {
     border-color: var(--color-primary);
     box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-    transform: translateY(-5px);
 }
 
 .track-card::before {

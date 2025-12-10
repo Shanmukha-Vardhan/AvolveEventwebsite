@@ -25,11 +25,14 @@ body {
   /* Retro cursor */
 
   /* Advanced Grid Background */
+  /* Advanced Grid Background with Spotlight */
   background-image:
+    radial-gradient(circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 0, 0.15), transparent 100%),
     linear-gradient(var(--color-primary-dim) 1px, transparent 1px),
     linear-gradient(90deg, var(--color-primary-dim) 1px, transparent 1px);
-  background-size: 50px 50px;
-  background-position: center top;
+  background-size: 100% 100%, 50px 50px, 50px 50px;
+  background-position: 0 0, center top, center top;
+  background-attachment: fixed, local, local;
 }
 
 /* CRT Screen Effect Overlay */
