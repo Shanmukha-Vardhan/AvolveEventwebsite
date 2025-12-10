@@ -1,82 +1,171 @@
 .registration {
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-align: center;
 }
 
-.reg-content {
-    border: 2px dashed var(--color-primary);
-    padding: 4rem;
-    background: rgba(0, 20, 0, 0.3);
+.terminal-window {
+    width: 100%;
+    max-width: 800px;
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 0 1px #333;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    background: #1a1a1a;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.red {
+    background: #ff5f56;
+}
+
+.dot.yellow {
+    background: #ffbd2e;
+}
+
+.dot.green {
+    background: #27c93f;
+}
+
+.terminal-title {
+    color: #666;
+    font-size: 0.9rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    color: #00ff00;
+    font-size: 1.1rem;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.line {
+    margin-bottom: 0.2rem;
+}
+
+.line.system {
+    color: #00ff00;
+}
+
+.line.question {
+    color: #e0e0e0;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.line.user {
+    color: #00ffff;
+}
+
+.line.success {
+    color: #00ff00;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+.input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: blink-caret 1s step-end infinite;
+}
+
+.terminal-input-field {
+    background: transparent;
+    border: none;
+    color: #00ffff;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+    outline: none;
+    caret-color: #00ffff;
+}
+
+/* Digital Ticket Styles */
+.digital-ticket {
+    margin-top: 2rem;
+    background: #000;
+    border: 2px dashed #00ff00;
+    padding: 2rem;
     position: relative;
+    max-width: 400px;
+    align-self: center;
+    animation: slideUp 0.5s ease-out;
 }
 
-.reg-content h2 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 3rem;
-}
-
-.ticket-btn {
-    display: inline-block;
-    background: var(--color-secondary);
-    color: #fff;
-    font-size: 1.5rem;
-    padding: 1.5rem 3rem;
-    text-decoration: none;
+.ticket-header {
+    text-align: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
     font-weight: bold;
-    border: 2px solid #fff;
-    transition: all 0.2s ease;
-    box-shadow: 5px 5px 0 #fff;
-    margin-bottom: 2rem;
+    letter-spacing: 2px;
 }
 
-.ticket-btn:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 3px 3px 0 #fff;
-    background: #ff33ff;
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
 }
 
-.ticket-btn:active {
-    transform: translate(5px, 5px);
-    box-shadow: none;
+.ticket-row .label {
+    color: #666;
 }
 
-.urgency-text {
-    color: red;
-    font-size: 1.2rem;
+.ticket-row .value {
+    color: #fff;
     font-weight: bold;
-    animation: blink 1s infinite;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-@keyframes blink {
+.barcode {
+    margin-top: 1.5rem;
+    font-family: 'Code39', sans-serif;
+    /* Fallback if no font */
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 4px;
+    color: #00ff00;
+    transform: scaleY(1.5);
+    opacity: 0.8;
+}
 
-    0%,
-    100% {
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
         opacity: 1;
-    }
-
-    50% {
-        opacity: 0.5;
-    }
-}
-
-@media (max-width: 768px) {
-    .reg-content {
-        padding: 2rem;
-        width: 100%;
-    }
-
-    .reg-content h2 {
-        font-size: 1.5rem;
-    }
-
-    .ticket-btn {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        transform: translateY(0);
     }
 }
